@@ -9,10 +9,10 @@ import { ToastMessage } from "../components/toast/Toast";
 
 export const CalculatorContainer = (props) => {
 
-    //Set rows in the state to store the array of rows
+    //Use rows to store rows of values and actions
     const [rows, setRows] = useState([]);
 
-    //Set result in state to store the final result and show it 
+    //Use result to store final result and display it
     const [result, setResult] = useState(0);
 
     //Listen to change in rows value to calcuate the result
@@ -21,25 +21,25 @@ export const CalculatorContainer = (props) => {
         const result = Calculate(rows);
         setResult(result);
 
-        //Close toast if there any 
+        //Close error message if there is any 
         closeToast();
     }, [rows]);
 
-    //Set message in state to store the error message  
+    //Use message to store error message
     const [message, setMessage] = useState('');
 
-    //Set message in state to store to show toast
+    //Use showToast for showing error messages
     const [showToast, setShowToast] = useState(false);
 
-    //Set lastusedKey in state for the purpose of is for each row
-    const [lastKey, setLastKey] = useState(0);
+    //Use rowId for Unique key for list of rows
+    const [rowId, setRowId] = useState(0);
 
     //Style for Toast
     const toastStyle = { top: '50px', right: '50px', position: 'fixed' };
 
     //Add row button click
-    const handleAddRowButtonClick = (e) => {
-
+    const handleAddRowButtonClick = (e) => {  
+        
         e.preventDefault();
 
         //Validate existing data before add 
@@ -50,11 +50,12 @@ export const CalculatorContainer = (props) => {
                 isDisabled: false,
                 operation: '+',
                 value: '',
-                id: lastKey
+                id: rowId
             }
-            //Setting state
-            setLastKey((prev) => prev + 1);
+            //Add new row to state
             setRows((prev) => [newRow, ...prev]);
+            //Increement row id by one
+            setRowId((prev) => prev + 1);
         }
         else{
             handleShowToast('Cannot Add New Row Without Data in Existing Fields.');
