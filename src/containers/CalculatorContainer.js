@@ -15,6 +15,16 @@ export const CalculatorContainer = (props) => {
     //Set result in state to store the final result and show it 
     const [result, setResult] = useState(0);
 
+    //Listen to change in rows value to calcuate the result
+    useEffect(() => {
+        //Calculate final result using imported function Calculate() 
+        const result = Calculate(rows);
+        setResult(result);
+
+        //Close toast if there any 
+        closeToast();
+    }, [rows]);
+
     //Set message in state to store the error message  
     const [message, setMessage] = useState('');
 
@@ -92,16 +102,6 @@ export const CalculatorContainer = (props) => {
             return obj;
         }));
     }
-
-    //Listen to change in rows value to calcuate the result
-    useEffect(() => {
-        //Calculate final result using imported function Calculate() 
-        const result = Calculate(rows);
-        setResult(result);
-
-        //Close toast if there any 
-        closeToast();
-    }, [rows]);
 
     //Show errors in Toast
     const handleShowToast = (message) => {
