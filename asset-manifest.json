@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/coolshop/static/css/main.319b204f.css",
-    "main.js": "/coolshop/static/js/main.ef1fa264.js",
+    "main.css": "/coolshop/static/css/main.8badb979.css",
+    "main.js": "/coolshop/static/js/main.2bcac60a.js",
     "static/js/787.626a797b.chunk.js": "/coolshop/static/js/787.626a797b.chunk.js",
     "index.html": "/coolshop/index.html",
-    "main.319b204f.css.map": "/coolshop/static/css/main.319b204f.css.map",
-    "main.ef1fa264.js.map": "/coolshop/static/js/main.ef1fa264.js.map",
+    "main.8badb979.css.map": "/coolshop/static/css/main.8badb979.css.map",
+    "main.2bcac60a.js.map": "/coolshop/static/js/main.2bcac60a.js.map",
     "787.626a797b.chunk.js.map": "/coolshop/static/js/787.626a797b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.319b204f.css",
-    "static/js/main.ef1fa264.js"
+    "static/css/main.8badb979.css",
+    "static/js/main.2bcac60a.js"
   ]
 }
