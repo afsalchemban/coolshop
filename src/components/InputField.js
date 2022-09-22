@@ -4,12 +4,12 @@ export const InputField = (props) => {
 
     const myRef = useRef(null);
 
-    //Handle value change in input box
+    //User type in input box
     const handleOnChange = (e) => {
         props.onChange(e.target.value)
     }
 
-    //Handle errors when typing by user
+    //Show error when user enter wrong data
     const handleValidationError = (message)=>{
         props.onValidationError(message);
     }
@@ -26,11 +26,17 @@ export const InputField = (props) => {
 
     //Only number allowed to enter by using keyPress event
     return (
-        <input type="text" ref={myRef} disabled={props.isDisabled} onChange={handleOnChange} placeholder="Enter the number" onKeyPress={(event) => {
-            if (!/[0-9]/.test(event.key)) {
-                handleValidationError('You can only enter number.')
-                event.preventDefault();
-            }
-        }} />
+        <input type="text" 
+            ref={myRef} 
+            disabled={props.isDisabled} 
+            onChange={handleOnChange} 
+            placeholder="Enter the number" 
+            onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                    handleValidationError('You can only enter number.')
+                    event.preventDefault();
+                }
+             }} 
+        />
     );
 }

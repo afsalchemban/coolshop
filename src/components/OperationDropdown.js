@@ -1,9 +1,10 @@
 export const OperationDropdown = (props)=>{
 
-    //Handle when user selecting operations
+    //User selecting (Plus/Minus)
     const handleOnChange = (e)=>{
         props.onChange(e.target.value)
     };
+
     //Return the select box html for selecting (plus/minus)
     return (
         <select className="operation-select-box" onChange={handleOnChange} disabled={props.isDisabled}>

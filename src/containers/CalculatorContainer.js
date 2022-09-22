@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AddRowButton } from "../components/AddRowButton";
 import { Result } from "../components/Result";
 import { Row } from "../components/Row";
-import { Calculate, ValidateAllRows, ValidateRow } from "../library/Utilities";
+import { Calculate, ValidateAllRows, ValidateRow } from "../utilities/Utilities";
 import { ToastMessage } from "../components/Toast";
 
 export const CalculatorContainer = (props) => {
@@ -42,7 +42,7 @@ export const CalculatorContainer = (props) => {
             setRows((prev) => [newRow, ...prev]);
         }
         else{
-            handleShowToast('Please enter the value.');
+            handleShowToast('Cannot Add New Row Without Data in Existing Fields.');
         }
     }
 
@@ -59,7 +59,7 @@ export const CalculatorContainer = (props) => {
             }));
         }
         else{
-            handleShowToast('Please enter the value to continue.');
+            handleShowToast('Cannot Disable Row Without Data.');
         } 
     }
 
@@ -68,7 +68,7 @@ export const CalculatorContainer = (props) => {
         setRows((prev) => prev.filter((item) => item.id !== row.id));
     }
 
-    //Update rows when value changed in input box in the state
+    //Update rows when value changed in input box 
     const updateRowByValue = (row, value) => {
         setRows((prev) => prev.map((obj) => {
             if (row.id === obj.id) {
@@ -78,7 +78,7 @@ export const CalculatorContainer = (props) => {
         }));
     }
 
-    //Update row when operation (plus/minus) changed in the state
+    //Update row when operation (plus/minus) changed 
     const updateRowByOperation = (row, value) => {
         setRows((prev) => prev.map((obj) => {
             if (row.id === obj.id) {
@@ -98,13 +98,13 @@ export const CalculatorContainer = (props) => {
         closeToast();
     }, [rows]);
 
-    //Handle errors when typing by user
+    //Show errors in Toast
     const handleShowToast = (message) => {
         setMessage(message);
         setShowToast(true);
     }
 
-    //Close the toast
+    //Close the toast 
     const closeToast = () => {
         setMessage('');
         setShowToast(false);
