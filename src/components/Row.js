@@ -1,4 +1,4 @@
-//main component row
+//Main component row
 
 import { DeleteButton } from "./DeleteButton";
 import { DisableButton } from "./DisableButton";
@@ -9,35 +9,44 @@ export const Row = (props) => {
 
     const { row } = props;
 
-    //handle user click on delete button
+    let focus = false;
+
+    //User click on delete button
     const handleDeleteClick = () => {
-        //call parent prop
+        //Call parent prop
         props.deleteRow(row);
     };
 
-    //handle user click on disable button 
+    //User click on disable button 
     const handleDisableClick = () => {
-        //call parent prop
+        //Call parent prop
         props.toggleDisableRow(row);
     };
 
-    //handle when user enter value in the input box
+    //User enter value in the input box
     const handleOnChangeValue = (value) => {
-        //call parent prop
+        //Call parent prop
         props.updateRowByValue(row,value);
     };
 
-    //handle when user change operation from select box
+    //User change operation from select box
     const handleOnChangeOperation = (value) => {
-        //call parent prop
+
+        //Call parent prop
         props.updateRowByOperation(row,value);
     };
+    //Handle errors when typing by user
+    const handleValidationError = (message)=>{
 
-    // return entire row HTML
+        //Pass to parent prop
+        props.onValidationError(message);
+    }
+
+    // Return entire row HTML
     return (
         <li >
             <OperationDropdown onChange={handleOnChangeOperation} isDisabled={row.isDisabled}/>
-            <InputField onChange={handleOnChangeValue} isDisabled={row.isDisabled}/>
+            <InputField focus={focus} onChange={handleOnChangeValue} isDisabled={row.isDisabled} onValidationError={handleValidationError}/>
             <DisableButton onClick={handleDisableClick} isDisabled={row.isDisabled}/>
             <DeleteButton onClick={handleDeleteClick}/>
         </li>

@@ -1,5 +1,5 @@
-//function to calculate final result
-export default function Calculate(rows) {
+//Calculate final result
+export const  Calculate = (rows) => {
 
     //exclude all disabled and empty string when calculating final result
     return rows.filter((row)=>!row.isDisabled&&row.value!=='').reduce((accumulator, currentValue) => {
@@ -8,4 +8,14 @@ export default function Calculate(rows) {
         }
         return accumulator - parseInt(currentValue.value);
     }, 0);
+}
+
+//Validate all rows by checking if it have value
+export const ValidateAllRows = (rows) => {
+    return rows.filter((row)=>row.value==='').length===0;
+}
+
+//Validate single row
+export const ValidateRow = (row) => {
+    return row.value !== '';
 }

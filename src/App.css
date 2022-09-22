@@ -59,3 +59,6 @@ ul.row-list li, ul.row-list li select, ul.row-list li input, ul.row-list li butt
 button#disable-button{
   width:100px;
 }
+ul.row-list li input:disabled, ul.row-list li select:disabled{
+  cursor: not-allowed;
+}
