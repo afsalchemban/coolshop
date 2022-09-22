@@ -1,9 +1,11 @@
+//Main Cotainer Component
+
 import { useEffect, useState } from "react";
-import { AddRowButton } from "../components/AddRowButton";
-import { Result } from "../components/Result";
-import { Row } from "../components/Row";
+import { AddRowButton } from "../components/row/AddRowButton";
+import { Result } from "../components/result/Result";
+import { Row } from "../components/row/Row";
 import { Calculate, ValidateAllRows, ValidateRow } from "../utilities/Utilities";
-import { ToastMessage } from "../components/Toast";
+import { ToastMessage } from "../components/toast/Toast";
 
 export const CalculatorContainer = (props) => {
 
@@ -21,6 +23,9 @@ export const CalculatorContainer = (props) => {
 
     //Set lastusedKey in state for the purpose of is for each row
     const [lastKey, setLastKey] = useState(0);
+
+    //Style for Toast
+    const toastStyle = { top: '50px', right: '50px', position: 'fixed' };
 
     //Add row button click
     const handleAddRowButtonClick = (e) => {
@@ -129,7 +134,7 @@ export const CalculatorContainer = (props) => {
                 }
             </ul>
             <Result result={result} />
-            <div style={{ top: '50px', right: '50px', position: 'fixed' }}>
+            <div style={toastStyle}>
                 <ToastMessage message={message} showToast={showToast} onCloseToast={closeToast} />
             </div>
         </div>

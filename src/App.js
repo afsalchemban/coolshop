@@ -1,4 +1,4 @@
-import Title from './components/Title';
+import Title from './components/title/Title';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
