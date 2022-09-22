@@ -33,6 +33,8 @@ export const InputField = (props) => {
             placeholder="Enter the number" 
             onKeyPress={(event) => {
                 if (!/[0-9]/.test(event.key)) {
+                    
+                    //send message to parent component
                     handleValidationError('You can only enter number.')
                     event.preventDefault();
                 }
