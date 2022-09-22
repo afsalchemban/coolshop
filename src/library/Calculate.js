@@ -1,5 +1,8 @@
+//function to calculate final result
 export default function Calculate(rows) {
-    return rows.filter((row)=>!row.isDisabled).reduce((accumulator, currentValue) => {
+
+    //exclude all disabled and empty string when calculating final result
+    return rows.filter((row)=>!row.isDisabled&&row.value!=='').reduce((accumulator, currentValue) => {
         if (currentValue.operation === '+') {
             return accumulator + parseInt(currentValue.value);
         }

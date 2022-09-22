@@ -1,3 +1,10 @@
+body
+{ 
+  background-color: #ededed;
+  color: #333;
+  font-family: 'Roboto', Arial, sans-serif;
+  padding-top: 60px;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +42,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+ul.row-list{
+  margin-top:20px;
+  margin-bottom:50px;
+}
+ul.row-list li{
+  margin:10px;
+  list-style: none;
+}
+ul.row-list li, ul.row-list li select, ul.row-list li input, ul.row-list li button{
+  height: 45px;
+  margin: 10px;
+  padding: 9px;
+}
+button#disable-button{
+  width:100px;
 }

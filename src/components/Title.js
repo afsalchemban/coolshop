@@ -1,5 +1,5 @@
 export default function Title(props) {
     return (
-      <h2>{props.children}</h2>
+      <h5>{props.children}</h5>
     )
 }
